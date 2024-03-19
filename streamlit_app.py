@@ -4,13 +4,13 @@ st.subheader("POC of Autoplay Feature", divider="rainbow")
 
 with st.expander("📜 **Context**", expanded=True):
     st.markdown("""
-    We may introduce an autoplay feature for for `st.audio` and `st.video`. Here's what you need to know:
+    We may introduce an autoplay feature for `st.audio` and `st.video`. Here's what you need to know:
 
-    - **Initial Autoplay**: On your first visit, audio and video will autoplay. Read the next two points to understand why it didn't just autoplay and how to enable it.
-    - **Enabling Autoplay**: Due to browser restrictions on autoplay, you might need to interact with the page (e.g., a quick click anywhere) as it loads to enable this feature.
-    - **Troubleshooting Autoplay**: If autoplay isn't working as expected, reopen the app in a new tab and click anywhere on the page **while it loads** or hard refresh the page (Cmd + Shift + R or Ctrl + F5) and furiously click anywhere on the page as it loads.
+    - **Initial autoplay**: On your first visit, audio and video will autoplay. Read the next two points to understand why it didn't just autoplay and how to enable it.
+    - **Enabling autoplay**: Due to browser restrictions on autoplay, you might need to interact with the page (e.g., a quick click anywhere) as it loads to enable this feature.
+    - **Troubleshooting autoplay**: If autoplay isn't working as expected, reopen the app in a new tab and click anywhere on the page **while it loads** or hard refresh the page (Cmd + Shift + R or Ctrl + F5) and furiously click anywhere on the page as it loads.
 
-    ##### Understanding Autoplay Behavior:
+    ##### Understanding autoplay behavior:
 
     **Single Tab, Multiple Reruns**:
       - On the initial run, audio and video content autoplays.
