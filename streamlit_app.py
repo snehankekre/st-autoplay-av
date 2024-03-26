@@ -15,7 +15,7 @@ with st.expander("📜 **Context**", expanded=True):
     **Single Tab, Multiple Reruns**:
       - On the initial run, audio and video content autoplays.
       - If you interact with the app, causing reruns (e.g., through button clicks), autoplay will not trigger again to prevent disruption.
-      - Specifically, clicking the "Delete" or "Show" buttons adds new elements above the AV components. This action counts as a rerun, but does not cause the AV components to autoplay again, respecting your initial interaction.
+      - Specifically, clicking the "Delete" or "Show" toggle adds new elements above the AV components. This action counts as a rerun, but does not cause the AV components to autoplay again, respecting your initial interaction.
 
     **New Tab or Window**:
       - A fresh start in a new tab or window allows audio and video to autoplay once more, adhering to the user's expectation of a new session.
@@ -24,12 +24,13 @@ with st.expander("📜 **Context**", expanded=True):
     """)
 
 with st.echo(code_location="below"):
-    if st.button("Delete"):
+    autoplay = st.checkbox("Autoplay", value=True)
+    if st.toggle("Delete"):
         st.write("Deleting...")
 
-    st.audio("https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav", autoplay=True, end_time=10)
+    st.audio("https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav", autoplay=autoplay, end_time=5)
 
-    if st.button("Show"):
+    if st.toggle("Show"):
         st.write("Showing...")
 
-    st.video("https://static.streamlit.io/examples/star.mp4", autoplay=True)
+    st.video("https://static.streamlit.io/examples/star.mp4", autoplay=autoplay)
