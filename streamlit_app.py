@@ -34,3 +34,13 @@ with st.echo(code_location="below"):
         st.write("Showing...")
 
     st.video("https://static.streamlit.io/examples/star.mp4", autoplay=autoplay)
+
+
+with st.expander("How does this work?", expanded=False):
+    st.markdown("""
+    The solution is to use similar logic as we use for widgets in this case, but without adding a `key` parameter. 
+    
+    Basically, we calculate an ID based on the command parameters, and use this ID to store state of the frontend component outside of the component. If the component unmounts and mounts again, we reconstruct the state based on the ID.
+    
+    See the implementation [here](https://github.com/streamlit/streamlit/compare/develop...snehan/feature/autoplay-video-audio). :point_left:
+    """)
