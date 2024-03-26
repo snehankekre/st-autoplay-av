@@ -24,16 +24,18 @@ with st.expander("📜 **Context**", expanded=True):
     """)
 
 with st.echo(code_location="below"):
-    autoplay = st.checkbox("Autoplay", value=True)
+    col1, col2 = st.columns([1, 5])
+    autoplay = col1.checkbox("Autoplay", value=True)
+    loop = col2.checkbox("Loop", value=False)
     if st.toggle("Delete"):
         st.write("Deleting...")
 
-    st.audio("https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav", autoplay=autoplay, end_time=5)
+    st.audio("https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav", autoplay=autoplay, end_time=6, loop=loop)
 
     if st.toggle("Show"):
         st.write("Showing...")
 
-    st.video("https://static.streamlit.io/examples/star.mp4", autoplay=autoplay)
+    st.video("https://static.streamlit.io/examples/star.mp4", autoplay=autoplay, loop=loop)
 
 
 with st.expander("How does this work?", expanded=False):
