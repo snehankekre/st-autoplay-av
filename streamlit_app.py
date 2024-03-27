@@ -42,8 +42,12 @@ with st.echo(code_location="below"):
     if st.toggle("Show"):
         st.write("Showing...")
 
+    muted = False
+    if st.query_params.get("muted"):
+        muted = True
+
     st.video(
-        "https://static.streamlit.io/examples/star.mp4", autoplay=autoplay, loop=loop
+        "https://static.streamlit.io/examples/star.mp4", autoplay=autoplay, loop=loop, muted=muted
     )
 
 
