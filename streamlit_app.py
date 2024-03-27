@@ -3,7 +3,8 @@ import streamlit as st
 st.subheader("POC of Autoplay Feature", divider="rainbow")
 
 with st.expander("📜 **Context**", expanded=True):
-    st.markdown("""
+    st.markdown(
+        """
     We may introduce an autoplay feature for `st.audio` and `st.video`. Here's what you need to know:
 
     - **Initial autoplay**: On your first visit, audio and video will autoplay. Read the next two points to understand why it didn't just autoplay and how to enable it.
@@ -21,7 +22,8 @@ with st.expander("📜 **Context**", expanded=True):
       - A fresh start in a new tab or window allows audio and video to autoplay once more, adhering to the user's expectation of a new session.
 
     This feature is designed to balance seamless content engagement with user control, adhering to browser policies and ensuring a non-intrusive experience. Enjoy!
-    """)
+    """
+    )
 
 with st.echo(code_location="below"):
     col1, col2 = st.columns([1, 5])
@@ -30,19 +32,28 @@ with st.echo(code_location="below"):
     if st.toggle("Delete"):
         st.write("Deleting...")
 
-    st.audio("https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav", autoplay=autoplay, end_time=6, loop=loop)
+    st.audio(
+        "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
+        autoplay=autoplay,
+        end_time=6,
+        loop=loop,
+    )
 
     if st.toggle("Show"):
         st.write("Showing...")
 
-    st.video("https://static.streamlit.io/examples/star.mp4", autoplay=autoplay, loop=loop)
+    st.video(
+        "https://static.streamlit.io/examples/star.mp4", autoplay=autoplay, loop=loop
+    )
 
 
 with st.expander("How does this work?", expanded=False):
-    st.markdown("""
+    st.markdown(
+        """
     The solution is to use similar logic as we use for widgets in this case, but without adding a `key` parameter. 
     
     Basically, we calculate an ID based on the command parameters, and use this ID to store state of the frontend component outside of the component. If the component unmounts and mounts again, we reconstruct the state based on the ID.
     
     See the implementation [here](https://github.com/streamlit/streamlit/compare/develop...snehan/feature/autoplay-video-audio). :point_left:
-    """)
+    """
+    )
